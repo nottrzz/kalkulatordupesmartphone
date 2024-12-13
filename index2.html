@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+<!-- \(￣︶￣*\))(* ￣3)(ε￣ *)(*￣3￣)╭o(*￣▽￣*)ブ(｡･∀･)ﾉﾞ(_　_)。゜zｚＺ!(*￣(￣　*)(∪.∪ )
+...zzz(ToT)/~~~(￣o￣) . z Z(づ￣ 3￣)づヾ(^▽^*))) -->
+
+<!-- CHYYYBENK CALCULATOR -->
+<!-- CREATED BY OCHYYY NEWBIE -->
+<!-- BUAT MENJADI LEBIH BAGUS DARI INI -->
+
+<!-- HANYA BISA DIGUNAKAN DI HANDPHONE -->
+
+
+
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 100%;
+            min-height: 100vh;
+            background-color: black;
+            text-align: center;
+            scrollbar-color: transparent transparent;
+            scrollbar-face-color: bisque;
+            overflow: hidden;
+
+        }
+
+        input{
+            width: 100%;
+            text-align: end;
+            height: 4rem;
+            margin-top: 145px;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            color: whitesmoke;
+            outline: none;
+            background-color: black;
+            border: black;
+            padding: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 5px white;
+        }
+
+        button{
+            width: 70px;
+            margin: .1rem;
+            margin-top: .7rem;
+            height: 70px;
+            border-radius: 50px;
+            background-color: rgb(70, 66, 66);
+            color: white;
+            font-size: 1.5rem;
+            border: none;
+            outline: none;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+        }
+
+        button:hover{
+            background-color: rgb(117, 111, 111);
+            width: 69px;
+            height: 68px;
+        }
+
+        .calculate{
+            font-size: 2rem;
+            background-color: orangered;
+        }
+        .calculate:hover{
+            background-color: orangered;
+        }
+
+        .variasi{
+            font-size: 1rem;
+            transform: translateY(20px);
+            z-index: 99;
+            color: rgb(98, 81, 114);
+            text-align: center;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .MEDIAQUERISNO{
+            display: none;
+        }
+
+        @media (min-width: 410px){
+            .container{
+                display: none;
+            }
+
+            .MEDIAQUERISNO{
+            display: block;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+            text-shadow:0 0 20px black, 0 0 40px black ;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            z-index: 9;
+            color: black;
+            margin-top: 5rem;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="MEDIAQUERISNO">GUNAKAN SMARTPHONE UNTUK MENJALANKAN APLIKASI</div>
+
+    <div class="container">
+        <div class="variasi">&copy;rosizamhari Calculator</div>
+        <input type="text" id="display"  readonly>
+        <button onclick="cleardisplay()">AC</button>
+        <button onclick="appendoperator('%')">%</button>
+        <button onclick="deletedisplay()">←</button>
+        <button onclick="appendoperator('/')">/</button>
+        <button onclick="appendnumber('7')">7</button>
+        <button onclick="appendnumber('8')">8</button>
+        <button onclick="appendnumber('9')">9</button>
+        <button onclick="appendoperator('*')">x</button>
+        <button onclick="appendnumber('7')">7</button>
+        <button onclick="appendnumber('5')">5</button>
+        <button onclick="appendnumber('6')">6</button>
+        <button onclick="appendoperator('-')">-</button>
+        <button onclick="appendnumber('1')">1</button>
+        <button onclick="appendnumber('2')">2</button>
+        <button onclick="appendnumber('3')">3</button>
+        <button onclick="appendoperator('+')">+</button>
+        <button onclick="appendnumber('00')">00</button>
+        <button onclick="appendnumber('0')">0</button>
+        <button onclick="appendnumber(',')">,</button>
+        <button onclick="calculate()" class="calculate">=</button>
+    </div>
+    <script>
+        let display = document.getElementById('display')
+        let chybenk = ''
+
+        function appendnumber(number){
+            display.value += number
+            chybenk = display.value
+        }
+
+        function appendoperator(operator){
+            display.value  += operator
+            chybenk = display.value
+        }
+
+        function calculate(){
+            try{
+                display.value = eval(chybenk)
+                chybenk = display.value
+            }catch (error){
+                display.value = 'i love you❤️'
+            }
+        }
+
+        function cleardisplay(){
+            display.value = ''
+            chybenk = ''
+        }
+
+        function deletedisplay(){
+            chybenk = display.value.slice(0, -1)
+            display.value = chybenk
+        }
+    </script>
+</body>
+</html>
